@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stefan's Tech Tips | Drop-Off PC Repairs Hermanus</title>
+    <meta name="description" content="Affordable drop-off PC and laptop repairs in Hermanus. Fixed labour rates from R150 to R500. Virus removal, tune-ups, hardware upgrades and Windows reinstalls.">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            400: '#5b9cf5',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        },
+                        navy: {
+                            800: '#0f172a',
+                            900: '#0b0f19',
+                            card: '#161e2e',
+                            border: '#26334d'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #f1f5f9;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(22, 30, 46, 0.92);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        #mobileMenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        #mobileMenu.open {
+            max-height: 320px;
+        }
+        input:focus, select:focus, textarea:focus, button:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+        }
+        @media (max-width: 640px) {
+            .touch-btn {
+                min-height: 44px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-white min-h-screen flex flex-col">
+
+    <!-- Top bar -->
+    <div class="bg-brand-700 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium flex flex-wrap justify-center items-center gap-x-4 gap-y-1">
+        <span class="flex items-center gap-1.5">
+            <i class="fa-solid fa-location-dot"></i>
+            Workshop drop-off by appointment in Hermanus, Western Cape
+        </span>
+        <span class="hidden md:inline text-brand-400">|</span>
+        <a href="https://wa.me/27840229779" target="_blank" rel="noopener noreferrer" class="hover:underline flex items-center gap-1.5 font-semibold">
+            <i class="fa-brands fa-whatsapp"></i>
+            WhatsApp 084 022 9779
+        </a>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-navy-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="h-16 sm:h-20 flex items-center justify-between">
+                <a href="#" class="flex items-center gap-2.5 sm:gap-3 shrink-0">
+                    <img src="/logo.png" alt="Stefan's Tech Tips logo" class="w-10 h-10 sm:w-12 sm:h-12 object-contain shrink-0" width="192" height="192">
+                    <div class="leading-tight">
+                        <span class="text-base sm:text-xl font-extrabold tracking-tight text-white block">Stefan's <span class="text-brand-400">Tech Tips</span></span>
+                        <span class="text-[10px] sm:text-[11px] tracking-wide text-gray-400 font-medium block">Drop-Off PC Repair Workshop</span>
+                    </div>
+                </a>
+
+                <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold text-gray-300">
+                    <a href="#services" class="hover:text-brand-400 transition-colors">Services</a>
+                    <a href="#calculator" class="hover:text-brand-400 transition-colors">Cost Calculator</a>
+                    <a href="#workshop-info" class="hover:text-brand-400 transition-colors">Drop-Off Info</a>
+                    <a href="#contact" class="hover:text-brand-400 transition-colors">Book Drop-Off</a>
+                </nav>
+
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <a href="https://wa.me/27840229779" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg flex items-center gap-1.5 transition-colors touch-btn">
+                        <i class="fa-brands fa-whatsapp text-sm sm:text-base"></i>
+                        <span class="hidden sm:inline">WhatsApp</span>
+                    </a>
+                    <a href="tel:0840229779" class="bg-brand-500 hover:bg-brand-400 text-white font-bold text-xs sm:text-sm px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg flex items-center gap-1.5 transition-colors touch-btn">
+                        <i class="fa-solid fa-phone text-sm"></i>
+                        <span class="hidden lg:inline">084 022 9779</span>
+                    </a>
+                    <button id="menuToggle" type="button" class="md:hidden w-10 h-10 flex items-center justify-center text-gray-300 hover:text-white rounded-lg border border-navy-border" aria-label="Toggle menu" aria-expanded="false">
+                        <i class="fa-solid fa-bars text-lg" id="menuIcon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobileMenu" class="md:hidden border-t border-navy-border">
+                <nav class="flex flex-col py-3 gap-1 text-sm font-semibold text-gray-300">
+                    <a href="#services" class="px-3 py-2.5 rounded-lg hover:bg-navy-card hover:text-brand-400" onclick="closeMobileMenu()">Services &amp; Pricing</a>
+                    <a href="#calculator" class="px-3 py-2.5 rounded-lg hover:bg-navy-card hover:text-brand-400" onclick="closeMobileMenu()">Cost Calculator</a>
+                    <a href="#workshop-info" class="px-3 py-2.5 rounded-lg hover:bg-navy-card hover:text-brand-400" onclick="closeMobileMenu()">Drop-Off &amp; Hours</a>
+                    <a href="#contact" class="px-3 py-2.5 rounded-lg hover:bg-navy-card hover:text-brand-400" onclick="closeMobileMenu()">Book Drop-Off</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="py-10 sm:py-14 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                <div class="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/25 px-3 py-1.5 rounded-full text-brand-400 text-xs sm:text-sm font-semibold">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        <span>Drop-and-go workshop in Hermanus (by appointment)</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                        Reliable PC repairs at my home workshop
+                    </h1>
+
+                    <p class="text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Bring your desktop or laptop to my workshop in Hermanus. Fast diagnostics, speed upgrades, virus cleaning, hardware work and Windows reinstalls at clear fixed prices.
+                    </p>
+
+                    <div class="bg-navy-card border border-navy-border p-4 rounded-2xl max-w-xl mx-auto lg:mx-0 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center border border-brand-500/25 shrink-0">
+                                <i class="fa-solid fa-tag"></i>
+                            </div>
+                            <div class="text-left">
+                                <span class="text-xs text-gray-400 uppercase font-bold tracking-wider block">Flat workshop pricing</span>
+                                <span class="text-sm sm:text-base font-extrabold text-white">From as low as R150</span>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-emerald-500/15 text-emerald-400 border border-emerald-500/25 font-bold px-3 py-1 rounded-full self-start sm:self-auto">No surprise fees</span>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-1">
+                        <a href="#services" class="w-full sm:w-auto bg-brand-500 hover:bg-brand-400 text-white font-bold py-3 px-6 rounded-xl transition-colors text-center flex items-center justify-center gap-2 text-sm touch-btn">
+                            <i class="fa-solid fa-list-check"></i>
+                            View services &amp; rates
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto bg-navy-card hover:bg-navy-border text-gray-200 border border-gray-700 font-semibold py-3 px-6 rounded-xl transition-colors text-center flex items-center justify-center gap-2 text-sm touch-btn">
+                            <i class="fa-solid fa-calendar-check text-brand-400"></i>
+                            Book a drop-off time
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="bg-navy-card border border-navy-border rounded-2xl p-6 sm:p-8 w-full max-w-md text-center shadow-xl">
+                        <img src="/logo.png" alt="Stefan's Tech Tips logo" class="w-28 h-28 sm:w-32 sm:h-32 mx-auto mb-5 object-contain" width="192" height="192">
+
+                        <h2 class="text-lg sm:text-xl font-extrabold text-white mb-0.5">Stefan's Tech Tips</h2>
+                        <p class="text-xs text-brand-400 font-semibold mb-5">Drop-and-go PC repairs, Hermanus</p>
+
+                        <ul class="space-y-2.5 text-left border-t border-gray-800 pt-5 text-xs sm:text-sm text-gray-300">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-emerald-400 mt-0.5 shrink-0"></i>
+                                <span><strong class="text-white">Drop-off only</strong> - bring your PC to the workshop</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-emerald-400 mt-0.5 shrink-0"></i>
+                                <span><strong class="text-white">No fix, no fee</strong> - you only pay when it is resolved</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-emerald-400 mt-0.5 shrink-0"></i>
+                                <span><strong class="text-white">Clear ZAR rates</strong> - R150 minimum to R500 maximum</span>
+                            </li>
+                        </ul>
+
+                        <a href="https://wa.me/27840229779" target="_blank" rel="noopener noreferrer" class="mt-6 w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition-colors text-xs sm:text-sm flex items-center justify-center gap-2 touch-btn">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                            Schedule via WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-12 sm:py-16 bg-navy-card/50 border-y border-navy-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+                <span class="text-xs font-bold text-brand-400 uppercase tracking-widest block mb-1">Workshop rates</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Services and fixed rates</h2>
+                <p class="text-gray-400 text-sm mt-2">Bring your device to the workshop in Hermanus. Labour is capped between R150 and R500.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                <article class="bg-navy-card border border-navy-border rounded-2xl p-5 sm:p-6 flex flex-col justify-between hover:border-brand-500/40 transition-colors">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 text-brand-400 flex items-center justify-center text-lg mb-4">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-white mb-1.5">Quick workshop assessment</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Initial diagnostic, email setup or quick hardware health check on drop-off.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline justify-between py-3 border-t border-gray-800">
+                            <span class="text-xs text-gray-400">Labour fee</span>
+                            <span class="text-xl sm:text-2xl font-extrabold text-brand-400">R150</span>
+                        </div>
+                        <button type="button" onclick="quickBookService('Quick Workshop Assessment (R150)')" class="w-full bg-navy-border hover:bg-brand-500 text-white text-xs font-bold py-2.5 rounded-xl transition-colors flex items-center justify-center gap-1.5 touch-btn">
+                            Book drop-off <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="bg-navy-card border border-navy-border rounded-2xl p-5 sm:p-6 flex flex-col justify-between hover:border-brand-500/40 transition-colors">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 text-brand-400 flex items-center justify-center text-lg mb-4">
+                            <i class="fa-solid fa-broom"></i> 
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-white mb-1.5">Tune-up and internal clean</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Junk file cleanup, Windows optimisation, fan dusting, thermal paste refresh and startup speed boost.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline justify-between py-3 border-t border-gray-800">
+                            <span class="text-xs text-gray-400">Labour fee</span>
+                            <span class="text-xl sm:text-2xl font-extrabold text-brand-400">R200</span>
+                        </div>
+                        <button type="button" onclick="quickBookService('Workshop PC Tune-Up (R200)')" class="w-full bg-navy-border hover:bg-brand-500 text-white text-xs font-bold py-2.5 rounded-xl transition-colors flex items-center justify-center gap-1.5 touch-btn">
+                            Book drop-off <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="bg-navy-card border border-navy-border rounded-2xl p-5 sm:p-6 flex flex-col justify-between hover:border-brand-500/40 transition-colors">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center text-lg mb-4">
+                           <i class="fa-solid fa-bolt-lightning"></i>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-white mb-1.5">Windows Debloat and Optimization</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Thorough removal of windows pre-installed applications, unnecessary background applications and temporary Junks files.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline justify-between py-3 border-t border-gray-800">
+                            <span class="text-xs text-gray-400">Labour fee</span>
+                            <span class="text-xl sm:text-2xl font-extrabold text-brand-400">R250</span>
+                        </div>
+                        <button type="button" onclick="quickBookService('Virus & Malware Cleaning (R250)')" class="w-full bg-navy-border hover:bg-brand-500 text-white text-xs font-bold py-2.5 rounded-xl transition-colors flex items-center justify-center gap-1.5 touch-btn">
+                            Book drop-off <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="bg-navy-card border border-navy-border rounded-2xl p-5 sm:p-6 flex flex-col justify-between hover:border-brand-500/40 transition-colors">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg mb-4">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-white mb-1.5">New computer and Printer setup</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Bring your new laptop/desktop and printers and let me handle the rest.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline justify-between py-3 border-t border-gray-800">
+                            <span class="text-xs text-gray-400">Labour fee</span>
+                            <span class="text-xl sm:text-2xl font-extrabold text-brand-400">R300</span>
+                        </div>
+                        <button type="button" onclick="quickBookService('Router & Device Setup (R300)')" class="w-full bg-navy-border hover:bg-brand-500 text-white text-xs font-bold py-2.5 rounded-xl transition-colors flex items-center justify-center gap-1.5 touch-btn">
+                            Book drop-off <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="bg-navy-card border border-navy-border rounded-2xl p-5 sm:p-6 flex flex-col justify-between hover:border-brand-500/40 transition-colors">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-lg mb-4">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-white mb-1.5">Hardware upgrades or Full custom builds</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">SSD installs, RAM upgrades, power supply swaps or full custom desktop builds. Parts quoted separately.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline justify-between py-3 border-t border-gray-800">
+                            <span class="text-xs text-gray-400">Labour fee</span>
+                            <span class="text-xl sm:text-2xl font-extrabold text-brand-400">R250 - R500</span>
+                        </div>
+                        <button type="button" onclick="quickBookService('Hardware Upgrade / Assembly (R250 - R500)')" class="w-full bg-navy-border hover:bg-brand-500 text-white text-xs font-bold py-2.5 rounded-xl transition-colors flex items-center justify-center gap-1.5 touch-btn">
+                            Book drop-off <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="bg-navy-card border border-brand-500/30 rounded-2xl p-5 sm:p-6 flex flex-col justify-between hover:border-brand-500/50 transition-colors">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 text-brand-400 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
+                            <span class="bg-brand-500/15 text-brand-300 text-xs font-bold px-2.5 py-1 rounded-full border border-brand-500/25">Full package</span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-white mb-1.5">OS reinstall and full computer deep clean</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Full Windows format and reinstall, driver updates, software setup and personal file backup, aswell as full physical parts deep clean and servicing</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline justify-between py-3 border-t border-gray-800">
+                            <span class="text-xs text-gray-400">Labour fee</span>
+                            <span class="text-xl sm:text-2xl font-extrabold text-brand-400">R250 - R500</span>
+                        </div>
+                        <button type="button" onclick="quickBookService('OS Reinstall & Data Recovery (R250 - R500)')" class="w-full bg-brand-500 hover:bg-brand-400 text-white text-xs font-bold py-2.5 rounded-xl transition-colors flex items-center justify-center gap-1.5 touch-btn">
+                            Book drop-off <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator -->
+    <section id="calculator" class="py-12 sm:py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-navy-card border border-navy-border rounded-2xl p-5 sm:p-8 shadow-xl">
+                <div class="text-center max-w-xl mx-auto mb-6 sm:mb-8">
+                    <span class="text-xs font-bold text-brand-400 uppercase tracking-widest block mb-1">Instant total</span>
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white">Service cost calculator</h2>
+                    <p class="text-xs text-gray-400 mt-1">Select the services you need. The total is an estimate of labour only.</p>
+                </div>
+
+                <div class="space-y-2.5">
+                    <label class="flex items-center justify-between p-3 sm:p-3.5 rounded-xl border border-gray-800 bg-gray-900/50 hover:border-gray-700 cursor-pointer transition-colors">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <input type="checkbox" data-name="Quick Workshop Assessment" data-price="150" class="calc-check w-4 h-4 text-brand-500 rounded bg-gray-800 border-gray-700 shrink-0" onchange="updateCalc()">
+                            <span class="text-xs sm:text-sm font-semibold text-gray-200 truncate">Quick workshop assessment</span>
+                        </div>
+                        <span class="text-xs sm:text-sm font-bold text-brand-400 shrink-0 ml-2">R150</span>
+                    </label>
+
+                    <label class="flex items-center justify-between p-3 sm:p-3.5 rounded-xl border border-gray-800 bg-gray-900/50 hover:border-gray-700 cursor-pointer transition-colors">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <input type="checkbox" data-name="Workshop PC Tune-Up" data-price="200" class="calc-check w-4 h-4 text-brand-500 rounded bg-gray-800 border-gray-700 shrink-0" onchange="updateCalc()">
+                            <span class="text-xs sm:text-sm font-semibold text-gray-200 truncate">PC tune-up, dust clean and speed boost</span>
+                        </div>
+                        <span class="text-xs sm:text-sm font-bold text-brand-400 shrink-0 ml-2">R200</span>
+                    </label>
+
+                    <label class="flex items-center justify-between p-3 sm:p-3.5 rounded-xl border border-gray-800 bg-gray-900/50 hover:border-gray-700 cursor-pointer transition-colors">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <input type="checkbox" data-name="Virus & Malware Deep Clean" data-price="250" class="calc-check w-4 h-4 text-brand-500 rounded bg-gray-800 border-gray-700 shrink-0" onchange="updateCalc()">
+                            <span class="text-xs sm:text-sm font-semibold text-gray-200 truncate">Windows Debloat and Optimization</span>
+                        </div>
+                        <span class="text-xs sm:text-sm font-bold text-brand-400 shrink-0 ml-2">R250</span>
+                    </label>
+
+                    <label class="flex items-center justify-between p-3 sm:p-3.5 rounded-xl border border-gray-800 bg-gray-900/50 hover:border-gray-700 cursor-pointer transition-colors">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <input type="checkbox" data-name="Router & Network Config" data-price="300" class="calc-check w-4 h-4 text-brand-500 rounded bg-gray-800 border-gray-700 shrink-0" onchange="updateCalc()">
+                            <span class="text-xs sm:text-sm font-semibold text-gray-200 truncate">New computer or Printer setup</span>
+                        </div>
+                        <span class="text-xs sm:text-sm font-bold text-brand-400 shrink-0 ml-2">R300</span>
+                    </label>
+
+                    <label class="flex items-center justify-between p-3 sm:p-3.5 rounded-xl border border-gray-800 bg-gray-900/50 hover:border-gray-700 cursor-pointer transition-colors">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <input type="checkbox" data-name="Hardware Upgrade / Assembly" data-price="250 - 500" class="calc-check w-4 h-4 text-brand-500 rounded bg-gray-800 border-gray-700 shrink-0" onchange="updateCalc()">
+                            <span class="text-xs sm:text-sm font-semibold text-gray-200 truncate">Hardware upgrades or full Custom Builds</span>
+                        </div>
+                        <span class="text-xs sm:text-sm font-bold text-brand-400 shrink-0 ml-2">R250 - R500</span>
+                    </label>
+
+                    <label class="flex items-center justify-between p-3 sm:p-3.5 rounded-xl border border-gray-800 bg-gray-900/50 hover:border-gray-700 cursor-pointer transition-colors">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <input type="checkbox" data-name="OS Reinstall & Data Recovery" data-price="250 - 500" class="calc-check w-4 h-4 text-brand-500 rounded bg-gray-800 border-gray-700 shrink-0" onchange="updateCalc()">
+                            <span class="text-xs sm:text-sm font-semibold text-gray-200 truncate">Full Windows reinstall and full physical deep clean</span>
+                        </div>
+                        <span class="text-xs sm:text-sm font-bold text-brand-400 shrink-0 ml-2">R250 - R500</span>
+                    </label>
+                </div>
+
+                <div class="mt-6 pt-5 border-t border-gray-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase font-bold tracking-wider block">Total estimated labour</span>
+                        <span class="text-[11px] text-gray-500">Parts (if needed) are quoted and ordered separately</span>
+                    </div>
+                    <div class="flex items-center gap-3 sm:gap-4">
+                        <span id="calcTotal" class="text-2xl sm:text-3xl font-extrabold text-brand-400">R0</span>
+                        <button type="button" onclick="applyCalcToForm()" class="bg-brand-500 hover:bg-brand-400 text-white text-xs font-bold px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl transition-colors touch-btn whitespace-nowrap">
+                            Use in booking form
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking form configured to redirect to standalone thank-you site -->
+    <section id="contact" class="py-12 sm:py-16 bg-navy-card/50 border-y border-navy-border">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-navy-card border border-navy-border rounded-2xl p-5 sm:p-8 md:p-10 shadow-xl">
+                <div class="text-center mb-6 sm:mb-8">
+                    <span class="text-xs font-bold text-brand-400 uppercase tracking-widest block mb-1">Schedule drop-off</span>
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white">Book your workshop drop-off</h2>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-1.5">Services are by appointment only. Call or WhatsApp <strong class="text-gray-300">084 022 9779</strong>, or send a request below.</p>
+                </div>
+
+                <form id="bookingForm" name="dropoff-booking" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" class="space-y-4 sm:space-y-5">
+                    <input type="hidden" name="form-name" value="dropoff-booking">
+                    <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 sm:gap-5">
+                        <div>
+                            <label for="custName" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1.5">Full name *</label>
+                            <input type="text" id="custName" name="name" required autocomplete="name" placeholder="e.g. Johan van der Merwe" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 sm:py-3 text-sm text-white focus:border-brand-500">
+                        </div>
+                        <div>
+                            <label for="custPhone" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1.5">Phone / WhatsApp *</label>
+                            <input type="tel" id="custPhone" name="phone" required autocomplete="tel" placeholder="e.g. 084 022 9779" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 sm:py-3 text-sm text-white focus:border-brand-500">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-3 gap-4 sm:gap-5">
+                        <div>
+                            <label for="custDay" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1.5">Preferred day *</label>
+                            <select id="custDay" name="day" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 sm:py-3 text-sm text-white focus:border-brand-500">
+                                <option value="Today / ASAP">Today / ASAP</option>
+                                <option value="Tomorrow">Tomorrow</option>
+                                <option value="This Week">Later this week</option>
+                                <option value="Weekend">Weekend</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="custTime" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1.5">Preferred time *</label>
+                            <input type="time" id="custTime" name="time" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 sm:py-3 text-sm text-white focus:border-brand-500">
+                        </div>
+                        <div>
+                            <label for="custService" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1.5">Service *</label>
+                            <select id="custService" name="service" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 sm:py-3 text-sm text-white focus:border-brand-500">
+                                <option value="Quick Workshop Assessment (R150)">Quick assessment (R150)</option>
+                                <option value="Workshop PC Tune-Up (R250)">PC tune-up (R250)</option>
+                                <option value="Virus & Malware Cleaning (R350)">Virus / malware clean (R350)</option>
+                                <option value="Router & Device Setup (R400)">Router setup (R400)</option>
+                                <option value="Hardware Upgrade / Assembly (R450)">Hardware upgrade (R450)</option>
+                                <option value="OS Reinstall & Data Recovery (R500)">OS reinstall (R500)</option>
+                                <option value="Custom Combination Estimate">Custom multi-service</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="custNotes" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1.5">Device and issue details</label>
+                        <textarea id="custNotes" name="notes" rows="3" placeholder="Desktop or laptop model, and a short description of the problem..." class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 sm:py-3 text-sm text-white focus:border-brand-500 resize-y"></textarea>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="w-full bg-brand-500 hover:bg-brand-400 text-white font-bold py-3 sm:py-3.5 px-6 rounded-xl transition-colors text-sm flex items-center justify-center gap-2 touch-btn">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Send drop-off request
+                    </button>
+                    <p id="formError" class="hidden text-xs text-rose-400 text-center">Something went wrong sending your request. Please try again or WhatsApp 084 022 9779.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshop info + FAQ -->
+    <section id="workshop-info" class="py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+                <div class="bg-navy-card border border-navy-border p-5 sm:p-8 rounded-2xl space-y-4">
+                    <div class="inline-flex items-center gap-2 text-brand-400 text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-house-user"></i>
+                        Home workshop
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-white">Drop-off location and hours</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        To keep turnaround times short and prices low, all devices are dropped off at Stefan's private home workshop in Hermanus.
+                    </p>
+
+                    <div class="space-y-3 pt-1">
+                        <div class="bg-gray-900/70 p-3.5 rounded-xl border border-gray-800 flex items-start gap-3">
+                            <i class="fa-solid fa-map-pin text-brand-400 mt-0.5 shrink-0"></i>
+                            <div>
+                                <span class="text-xs font-bold text-white block">Location</span>
+                                <span class="text-xs text-gray-400">Hermanus, Western Cape. Exact address shared once your appointment is confirmed.</span>
+                            </div>
+                        </div>
+                        <div class="bg-gray-900/70 p-3.5 rounded-xl border border-gray-800 flex items-start gap-3">
+                            <i class="fa-solid fa-clock text-brand-400 mt-0.5 shrink-0"></i>
+                            <div>
+                                <span class="text-xs font-bold text-white block">Hours (by appointment)</span>
+                                <span class="text-xs text-gray-400">Monday to Saturday, 08:00 to 17:00</span>
+                            </div>
+                        </div>
+                        <div class="bg-gray-900/70 p-3.5 rounded-xl border border-gray-800 flex items-start gap-3">
+                            <i class="fa-solid fa-box-archive text-brand-400 mt-0.5 shrink-0"></i>
+                            <div>
+                                <span class="text-xs font-bold text-white block">What to bring</span>
+                                <span class="text-xs text-gray-400">Laptops with charger. Desktop towers (cables not required unless you have a special adapter).</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-[11px] text-gray-400 pt-1">
+                        Questions before you bring it in? Call or WhatsApp <strong class="text-gray-300">084 022 9779</strong>.
+                    </p>
+                </div>
+
+                <div class="space-y-3">
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-white mb-3">Frequently asked questions</h3>
+
+                    <div class="bg-navy-card border border-navy-border rounded-xl overflow-hidden">
+                        <button type="button" onclick="toggleFaq(1)" class="w-full text-left p-4 text-sm font-bold text-white flex justify-between items-center gap-3" aria-expanded="false">
+                            <span>How does the drop-off process work?</span>
+                            <i class="fa-solid fa-chevron-down text-brand-400 shrink-0 transition-transform" id="faqIcon-1"></i>
+                        </button>
+                        <div id="faqContent-1" class="hidden px-4 pb-4 text-xs text-gray-400 leading-relaxed border-t border-gray-800 pt-3">
+                            Book a time on this site or message Stefan on WhatsApp (084 022 9779). You will get the address for drop-off. When the repair is done, you will be notified for collection.
+                        </div>
+                    </div>
+
+                    <div class="bg-navy-card border border-navy-border rounded-xl overflow-hidden">
+                        <button type="button" onclick="toggleFaq(2)" class="w-full text-left p-4 text-sm font-bold text-white flex justify-between items-center gap-3" aria-expanded="false">
+                            <span>How does the no-fix, no-fee guarantee work?</span>
+                            <i class="fa-solid fa-chevron-down text-brand-400 shrink-0 transition-transform" id="faqIcon-2"></i>
+                        </button>
+                        <div id="faqContent-2" class="hidden px-4 pb-4 text-xs text-gray-400 leading-relaxed border-t border-gray-800 pt-3">
+                            If the problem cannot be diagnosed or fixed after inspection, you pay nothing for the attempt. You only pay when the issue is resolved.
+                        </div>
+                    </div>
+
+                    <div class="bg-navy-card border border-navy-border rounded-xl overflow-hidden">
+                        <button type="button" onclick="toggleFaq(3)" class="w-full text-left p-4 text-sm font-bold text-white flex justify-between items-center gap-3" aria-expanded="false">
+                            <span>Are labour prices capped at R150 to R500?</span>
+                            <i class="fa-solid fa-chevron-down text-brand-400 shrink-0 transition-transform" id="faqIcon-3"></i>
+                        </button>
+                        <div id="faqContent-3" class="hidden px-4 pb-4 text-xs text-gray-400 leading-relaxed border-t border-gray-800 pt-3">
+                            Yes. Labour ranges from R150 for a quick assessment up to R500 for a full OS reinstall and data recovery. Any replacement parts (SSD, RAM, etc.) are quoted separately at cost.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-900 border-t border-navy-border py-8 sm:py-10 mt-auto text-xs text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-5 pb-6 border-b border-gray-800">
+                <div class="flex items-center gap-3">
+                    <img src="/logo.png" alt="Stefan's Tech Tips logo" class="w-9 h-9 object-contain shrink-0" width="192" height="192">
+                    <div>
+                        <span class="text-sm sm:text-base font-extrabold text-white block">Stefan's Tech Tips</span>
+                        <span class="text-[10px] text-gray-400">Hermanus drop-off computer workshop</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-4 sm:gap-6 font-semibold text-gray-300">
+                    <a href="tel:0840229779" class="hover:text-brand-400 flex items-center gap-1.5">
+                        <i class="fa-solid fa-phone text-brand-400"></i> 084 022 9779
+                    </a>
+                    <a href="mailto:stefantechtips@gmail.com" class="hover:text-brand-400 flex items-center gap-1.5">
+                        <i class="fa-solid fa-envelope text-brand-400"></i> stefantechtips@gmail.com
+                    </a>
+                    <a href="https://wa.me/27840229779" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 flex items-center gap-1.5">
+                        <i class="fa-brands fa-whatsapp text-emerald-400"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-5 flex flex-col sm:flex-row items-center justify-between text-gray-500 gap-2 text-center sm:text-left">
+                <p>&copy; <span id="year"></span> Stefan's Tech Tips. Drop-off workshop, Hermanus, Western Cape.</p>
+                <p>PC repairs · Data recovery · Custom builds</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('open');
+            menuToggle.setAttribute('aria-expanded', isOpen);
+            menuIcon.className = isOpen ? 'fa-solid fa-xmark text-lg' : 'fa-solid fa-bars text-lg';
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuIcon.className = 'fa-solid fa-bars text-lg';
+        }
+
+        // ---------- Booking form: save to Netlify Forms, then go to thank-you page ----------
+        const THANK_YOU_URL = 'https://stefantechtipsthankyou.netlify.app/';
+        document.getElementById('bookingForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const btn = document.getElementById('submitBtn');
+            const err = document.getElementById('formError');
+            err.classList.add('hidden');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            try {
+                const res = await fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(new FormData(form)).toString()
+                });
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                window.location.href = THANK_YOU_URL;
+            } catch (ex) {
+                console.error(ex);
+                err.textContent = 'Could not send (' + ex.message + '). Please try again or WhatsApp 084 022 9779.';
+                err.classList.remove('hidden');
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send drop-off request';
+            }
+        });
+
+        function quickBookService(serviceName) {
+            document.getElementById('custService').value = serviceName;
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            closeMobileMenu();
+        }
+
+        function updateCalc() {
+            let total = 0;
+            document.querySelectorAll('.calc-check:checked').forEach(i => {
+                total += parseInt(i.getAttribute('data-price'), 10);
+            });
+            document.getElementById('calcTotal').textContent = 'R' + total;
+        }
+
+        function applyCalcToForm() {
+            updateCalc();
+            const total = document.getElementById('calcTotal').textContent;
+            const selected = Array.from(document.querySelectorAll('.calc-check:checked'))
+                .map(i => i.getAttribute('data-name'))
+                .join(', ');
+            document.getElementById('custService').value = 'Custom Combination Estimate';
+            document.getElementById('custNotes').value = 'Selected estimate (' + total + '): ' + (selected || 'Custom package');
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleFaq(num) {
+            const content = document.getElementById('faqContent-' + num);
+            const icon = document.getElementById('faqIcon-' + num);
+            const button = content.previousElementSibling;
+            const isHidden = content.classList.contains('hidden');
+
+            for (let i = 1; i <= 3; i++) {
+                document.getElementById('faqContent-' + i).classList.add('hidden');
+                document.getElementById('faqIcon-' + i).classList.remove('rotate-180');
+                document.getElementById('faqContent-' + i).previousElementSibling.setAttribute('aria-expanded', 'false');
+            }
+
+            if (isHidden) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+                button.setAttribute('aria-expanded', 'true');
+            }
+        }
+    </script>
+</body>
+</html>

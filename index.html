@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Received | Stefan's Tech Tips</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            400: '#5b9cf5',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        },
+                        navy: {
+                            800: '#0f172a',
+                            900: '#0b0f19',
+                            card: '#161e2e',
+                            border: '#26334d'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #f1f5f9;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(22, 30, 46, 0.92);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        input:focus, select:focus, textarea:focus, button:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+        }
+        @media (max-width: 640px) {
+            .touch-btn {
+                min-height: 44px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-white min-h-screen flex flex-col justify-between">
+
+    <!-- Header -->
+    <header class="glass-panel border-b border-navy-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="h-16 sm:h-20 flex items-center justify-between">
+                <a href="https://stefantechtips.co.za" class="flex items-center gap-2.5 sm:gap-3 shrink-0">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-500 flex items-center justify-center p-1 shadow-md">
+                        <svg viewBox="0 0 200 200" class="w-full h-full" aria-hidden="true">
+                            <circle cx="100" cy="100" r="95" fill="#3B82F6" />
+                            <circle cx="100" cy="100" r="52" fill="#F8FAFC" />
+                            <rect x="70" y="72" width="60" height="42" rx="4" fill="#1E1B4B" />
+                            <rect x="74" y="76" width="52" height="32" fill="#F8FAFC" />
+                            <circle cx="100" cy="110" r="2" fill="#1E1B4B" />
+                            <path d="M90 114 L110 114 L115 128 L85 128 Z" fill="#1E1B4B" />
+                            <rect x="80" y="128" width="40" height="6" rx="3" fill="#1E1B4B" />
+                        </svg>
+                    </div>
+                    <div class="leading-tight">
+                        <span class="text-base sm:text-xl font-extrabold tracking-tight text-white block">Stefan's <span class="text-brand-400">Tech Tips</span></span>
+                        <span class="text-[10px] sm:text-[11px] tracking-wide text-gray-400 font-medium block">Drop-Off PC Repair Workshop</span>
+                    </div>
+                </a>
+
+                <a href="https://wa.me/27840229779" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg flex items-center gap-1.5 transition-colors touch-btn">
+                    <i class="fa-brands fa-whatsapp text-sm sm:text-base"></i>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Thank You Content -->
+    <main class="py-12 sm:py-20 flex-grow flex items-center justify-center">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="bg-navy-card border border-navy-border rounded-2xl p-6 sm:p-10 shadow-2xl text-center space-y-6">
+                
+                <!-- Icon -->
+                <div class="w-16 h-16 sm:w-20 sm:h-20 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-3xl sm:text-4xl shadow-inner">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <!-- Text Headings -->
+                <div class="space-y-2">
+                    <span class="text-xs font-bold text-brand-400 uppercase tracking-widest block">Drop-off Request Received</span>
+                    <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">Thank you for your booking!</h1>
+                    <p class="text-gray-300 text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+                        Your repair request has been submitted successfully. Stefan will review your request and get in touch with you shortly to confirm your appointment time and workshop drop-off details.
+                    </p>
+                </div>
+
+                <!-- Details Card -->
+                <div class="bg-navy-900/70 border border-gray-800 rounded-xl p-4 sm:p-5 text-left text-xs sm:text-sm space-y-3">
+                    <div class="flex items-start gap-3">
+                        <i class="fa-brands fa-whatsapp text-emerald-400 text-base mt-0.5 shrink-0"></i>
+                        <div>
+                            <strong class="text-white block">WhatsApp Confirmation</strong>
+                            <span class="text-gray-400">You will receive a confirmation message or call on the number provided.</span>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-800 pt-3 flex items-start gap-3">
+                        <i class="fa-solid fa-location-dot text-brand-400 text-base mt-0.5 shrink-0"></i>
+                        <div>
+                            <strong class="text-white block">Workshop Location</strong>
+                            <span class="text-gray-400">Hermanus, Western Cape. The exact drop-off address will be provided upon appointment confirmation.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                    <a href="https://stefantechtips.co.za" class="w-full sm:w-auto bg-brand-500 hover:bg-brand-400 text-white font-bold py-3 px-6 rounded-xl transition-colors text-center text-xs sm:text-sm flex items-center justify-center gap-2 touch-btn">
+                        <i class="fa-solid fa-house"></i>
+                        Back to Home Page
+                    </a>
+                    <a href="https://wa.me/27840229779" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 px-6 rounded-xl transition-colors text-center text-xs sm:text-sm flex items-center justify-center gap-2 touch-btn">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        Message on WhatsApp
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy-900 border-t border-navy-border py-6 text-xs text-gray-500 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p>&copy; <span id="year"></span> Stefan's Tech Tips. Drop-off workshop, Hermanus, Western Cape.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
